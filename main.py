@@ -85,12 +85,24 @@ analyze_btn.setStyleSheet("""
     QPushButton:pressed { background-color: #BF360C; }
 """)
 
+derivative_btn = QPushButton("∂  Ածանցյալ")
+derivative_btn.setStyleSheet("""
+    QPushButton {
+        background-color: #00897B; color: white;
+        font-size: 13px; padding: 7px 18px;
+        border-radius: 6px; border: none;
+    }
+    QPushButton:hover { background-color: #00695C; }
+    QPushButton:pressed { background-color: #004D40; }
+""")
+
 x_layout.addWidget(x_label)
 x_layout.addWidget(x_input)
 x_layout.addSpacing(10)
 x_layout.addWidget(calc_btn)
 x_layout.addWidget(graph_btn)
 x_layout.addWidget(analyze_btn)
+x_layout.addWidget(derivative_btn)
 x_layout.addStretch()
 
 # --- Արդյունք ---
@@ -185,7 +197,24 @@ def analyze():
     pass
 
 
+# ╔══════════════════════════════════════════════════════╗
+# ║      ԱՅՍ ՖՈՒՆԿՑԻԱՆ ԴՈՒ ԿԸ ԼՐԱՑՆԵՍ                ║
+# ╠══════════════════════════════════════════════════════╣
+# ║  get_expr()       → մուտքագրած արտահայտությունը    ║
+# ║  x_input.value()  → x-ի արժեքը                     ║
+# ║  result_label.setText(...)  → ցուցադրիր արդյունքը  ║
+# ║  ax, fig, canvas  → գրաֆիկի օբյեկտներ              ║
+# ╚══════════════════════════════════════════════════════╝
+def draw_derivative():
+    expr = get_expr()
+    x = x_input.value()
+
+    # ➡️ Այստեղ գրիր քո լոգիկան
+    pass
+
+
 analyze_btn.clicked.connect(analyze)
+derivative_btn.clicked.connect(draw_derivative)
 calc_btn.clicked.connect(calculate)
 graph_btn.clicked.connect(draw_graph)
 func_input.returnPressed.connect(calculate)
